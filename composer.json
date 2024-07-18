@@ -1,0 +1,37 @@
+{
+  "name": "chisu/php-integration",
+  "description": "chisu php integration for TB phase II.",
+  "keywords": [
+    "chisu",
+    "php-integration"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+    "guzzlehttp/guzzle": "^7.8",
+    "laravel/tinker": "^2.8",
+    "illuminate/config": "^8.0|^9.0|^10.0|^11.0",
+    "illuminate/session": "^8.0|^9.0|^10.0|^11.0",
+    "illuminate/validation": "^11.16",
+    "illuminate/translation": "^11.16",
+    "league/oauth2-client": "^2.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Chisu\\PhpIntegration\\": "src/",
+      "Illuminate\\Support\\": "vendor/illuminate/support/src",
+      "Illuminate\\Validation\\": "vendor/illuminate/validation/src"
+    },
+    "files":[
+      "helpers.php"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
