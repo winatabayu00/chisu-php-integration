@@ -62,8 +62,8 @@ class Authorization extends BaseAction
             ]
         );
 
-        config()
-            ->set(ConfigKeys::TOKEN, $response);
+        chisuConfig()
+            ->set(ConfigKeys::TOKEN, $response['body']['access_token']);
 
         return $response;
     }

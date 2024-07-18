@@ -10,7 +10,7 @@ use Chisu\PhpIntegration\Trait\ConfigHelper;
 
 class MyConfig
 {
-    use COnfigHelper;
+    use ConfigHelper;
     public static ?ConfigCollection $configs = null;
 
     /**

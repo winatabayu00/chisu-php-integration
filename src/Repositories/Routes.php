@@ -41,4 +41,18 @@ class Routes implements RoutesInterface
         return (new mikroskopis($url, $data))
             ->handle();
     }
+
+    /**
+     * @param array $data
+     * @param array $headers
+     * @return array
+     * @throws GuzzleException
+     */
+    public function tcm(array $data, array $headers = []): array
+    {
+        $url = "{$this->baseMediatorUrl}/satusehat/rme/v1.0/sync";
+
+        return (new mikroskopis($url, $data))
+            ->handle();
+    }
 }

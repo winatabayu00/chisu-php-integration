@@ -38,6 +38,8 @@ trait ConfigHelper
         static::$configs = static::factory();
 
         static::$configs->put(key: $key, value: $value);
+
+        // setSession
         return new static();
     }
 }

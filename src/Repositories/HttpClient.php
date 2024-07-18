@@ -14,7 +14,7 @@ class HttpClient implements HttpClientInterface
 
     public function __construct()
     {
-        $this->bearerToken = config()
+        $this->bearerToken = chisuConfig()
                 ->getConfig('token');
         $this->client = new Client();
     }
@@ -93,9 +93,12 @@ class HttpClient implements HttpClientInterface
             $options['headers']['Authorization'] = 'Bearer ' . $this->bearerToken;
 
             $response = $this->client->request($method, $url, $options);
+
+            $body = json_decode($response->getBody()->getContents(), true);
+
             return [
                 'status' => $response->getStatusCode(),
-                'body' => $response->getBody()->getContents()
+                'body' => $body
             ];
         } catch (RequestException $e) {
             return [
