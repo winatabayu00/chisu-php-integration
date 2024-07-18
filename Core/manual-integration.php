@@ -1,4 +1,18 @@
 <?php
+require __DIR__ . "/../vendor/autoload.php";
+
+
+use Illuminate\Container\Container;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\CallableDispatcher;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Facade;
+use Illuminate\Translation\ArrayLoader;
+use Illuminate\Translation\Translator;
+use Illuminate\Validation\Factory as ValidatorFactory;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,47 +25,33 @@
 |
 */
 
-use Illuminate\Container\Container;
-use Illuminate\Support\Facades\Facade;
-use Illuminate\Translation\ArrayLoader;
-use Illuminate\Translation\Translator;
-use Illuminate\Validation\Factory as ValidatorFactory;
+$app = new Container();
+Facade::setFacadeApplication($app);
 
-require __DIR__ . '/../vendor/autoload.php';
-
-//if (session_status() === PHP_SESSION_NONE) {
-//    ob_start();
-//    session_start();
-//}
-
-$container = new Container();
-Facade::setFacadeApplication($container);
-
-$container->bind('validator', function ($app) {
+$app->bind('validator', function ($app) {
     $translator = new Translator(new ArrayLoader(), 'en'); // Adjust locale as needed
 
     return new ValidatorFactory($translator, $app);
 });
 
-//$config = new Illuminate\Config\Repository(require __DIR__ . '/../config/session.php');
-//$container->instance('config', $config);
-//// Initialize SessionManager
-//$container->bind('session', function ($app) {
-//    return (new SessionManager($app))->driver('file');
-//});
-//
-//// Bind the session manager into the container
-//$container->bind('session', function ($app) {
-//    // Instantiate SessionServiceProvider and register it
-//    $sessionServiceProvider = new SessionServiceProvider($app);
-//    $sessionServiceProvider->register();
-//
-//    // Retrieve the session manager from the container
-//    return new SessionManager($app);
-//});
-//
-//// Resolve the session manager instance from the container
-//$sessionManager = $container->make('session');
-//
-//// Start the session
-//$sessionManager->start();
+$events = new Dispatcher($app);
+$app->singleton('Illuminate\Routing\Contracts\CallableDispatcher', function ($app) {
+    return new CallableDispatcher($app);
+});
+
+$router = new Router($events, $app);
+new \Chisu\PhpIntegration\Http\Router\Router($router);
+$request = Request::createFromGlobals();
+
+if (PHP_SAPI !== 'cli') {
+    try {
+        $response = $router->dispatch($request);
+    } catch (NotFoundHttpException $e) {
+        $response = new Response();
+    } catch (Exception $e) {
+        throw $e;
+    }
+
+    $response->send();
+}
+

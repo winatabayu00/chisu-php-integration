@@ -15,7 +15,10 @@
     "illuminate/session": "^8.0|^9.0|^10.0|^11.0",
     "illuminate/validation": "^11.16",
     "illuminate/translation": "^11.16",
-    "league/oauth2-client": "^2.7"
+    "league/oauth2-client": "^2.7",
+    "illuminate/routing": "^11.16",
+    "illuminate/events": "^11.16",
+    "illuminate/http": "^11.16"
   },
   "autoload": {
     "psr-4": {

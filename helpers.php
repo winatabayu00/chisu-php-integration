@@ -1,11 +1,14 @@
 <?php
 
-require __DIR__ . '/Core/manual-integration.php';
+use Chisu\PhpIntegration\Config\MyConfig;
+
+require_once __DIR__ . '/Core/manual-integration.php';
+
 
 /**
- * @return \Chisu\PhpIntegration\Config\MyConfig
+ * @return MyConfig
  */
-function chisuConfig(): \Chisu\PhpIntegration\Config\MyConfig
+function chisuConfig(): MyConfig
 {
-    return new \Chisu\PhpIntegration\Config\MyConfig();
+    return new MyConfig();
 }
