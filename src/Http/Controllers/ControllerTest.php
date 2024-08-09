@@ -2,7 +2,10 @@
 
 namespace Chisu\PhpIntegration\Http\Controllers;
 
-class ControllerTest
+class ControllerTest extends Controller
 {
-
+    public function index()
+    {
+        $this->view('welcome');
+    }
 }
