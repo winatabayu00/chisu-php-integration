@@ -48,7 +48,7 @@ $app->singleton('Illuminate\Routing\Contracts\CallableDispatcher', function ($ap
 
 $filesystem = new Filesystem();
 $viewPaths = [__DIR__ . '/../src/views']; // Adjust this path if needed
-$cachePath = __DIR__ . '/../src/cache'; // Adjust this path if needed
+$cachePath = __DIR__ . '/../cache'; // Adjust this path if needed
 
 $fileViewFinder = new FileViewFinder($filesystem, $viewPaths);
 
