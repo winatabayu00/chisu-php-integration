@@ -12,15 +12,11 @@ class Router extends RouteBinding
         // dont use prefix '/'
         $this->router->get('/', function (Request $request){
             // do not use anything here
-            return (new ControllerTest())->index();
+            return (new ControllerTest())->welcome();
         });
 
         $this->router->get('test', function (){
-            return 'this is path of prefix test';
-        });
-
-        $this->router->get('view', function (){
-            return 'this is path of prefix view';
+            return (new ControllerTest())->folderWelcome();
         });
     }
 
