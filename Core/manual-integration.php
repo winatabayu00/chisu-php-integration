@@ -4,6 +4,7 @@ require __DIR__ . "/../vendor/autoload.php";
 
 use Illuminate\Container\Container;
 use Illuminate\Events\Dispatcher;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\CallableDispatcher;
@@ -12,6 +13,12 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Translation\ArrayLoader;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory as ValidatorFactory;
+use Illuminate\View\Compilers\BladeCompiler;
+use Illuminate\View\Engines\CompilerEngine;
+use Illuminate\View\Engines\EngineResolver;
+use Illuminate\View\Engines\PhpEngine;
+use Illuminate\View\Factory;
+use Illuminate\View\FileViewFinder;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /*
@@ -39,6 +46,29 @@ $app->singleton('Illuminate\Routing\Contracts\CallableDispatcher', function ($ap
     return new CallableDispatcher($app);
 });
 
+$filesystem = new Filesystem();
+$viewPaths = [__DIR__ . '/../src/views']; // Adjust this path if needed
+$cachePath = __DIR__ . '/../src/cache'; // Adjust this path if needed
+
+$fileViewFinder = new FileViewFinder($filesystem, $viewPaths);
+
+$bladeCompiler = new BladeCompiler($filesystem, $cachePath);
+$phpEngine = new PhpEngine($filesystem);
+$compilerEngine = new CompilerEngine($bladeCompiler);
+
+$engineResolver = new Illuminate\View\Engines\EngineResolver();
+$engineResolver->register('php', function () use ($phpEngine) {
+    return $phpEngine;
+});
+$engineResolver->register('blade', function () use ($compilerEngine) {
+    return $compilerEngine;
+});
+
+$viewFactory = new Factory($engineResolver, $fileViewFinder, $events);
+
+// Make $viewFactory available globally
+$GLOBALS['viewFactory'] = $viewFactory;
+
 $router = new Router($events, $app);
 new \Chisu\PhpIntegration\Http\Router\Router($router);
 $request = Request::createFromGlobals();
@@ -54,4 +84,3 @@ if (PHP_SAPI !== 'cli') {
 
     $response->send();
 }
-
