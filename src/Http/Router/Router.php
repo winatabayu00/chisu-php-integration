@@ -2,6 +2,7 @@
 
 namespace Chisu\PhpIntegration\Http\Router;
 use Chisu\PhpIntegration\Abstracts\RouteBinding;
+use Chisu\PhpIntegration\Http\Controllers\ControllerTest;
 use Illuminate\Http\Request;
 
 class Router extends RouteBinding
@@ -11,7 +12,7 @@ class Router extends RouteBinding
         // dont use prefix '/'
         $this->router->get('/', function (Request $request){
             // do not use anything here
-            return 'hehee';
+            return (new ControllerTest())->index();
         });
 
         $this->router->get('test', function (){
