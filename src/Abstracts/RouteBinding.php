@@ -5,8 +5,11 @@ use Illuminate\Routing\Router;
 
 abstract class RouteBinding
 {
-    public function __construct(protected Router $router)
+    protected Router $router;
+
+    public function __construct(Router $router)
     {
+        $this->router = $router;
         $this->beforeRegister();
         $this->routes();
     }

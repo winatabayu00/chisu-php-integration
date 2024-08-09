@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class Router extends RouteBinding
 {
-
     public function routes(): void
     {
         // dont use prefix '/'

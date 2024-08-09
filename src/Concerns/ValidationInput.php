@@ -2,7 +2,6 @@
 
 namespace Chisu\PhpIntegration\Concerns;
 
-use Chisu\PhpIntegration\Actions\Auth\Authorization;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -34,7 +33,7 @@ trait ValidationInput
 
     /**
      * @param array $validatedData
-     * @return ValidationInput|Authorization
+     * @return ValidationInput
      */
     protected function setValidatedData(array $validatedData): self
     {
