@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Core/manual-integration.php';
+require_once __DIR__ . '/vendor/autoload.php';
 //
 //$routes = new \Chisu\PhpIntegration\Repositories\Routes();
 //

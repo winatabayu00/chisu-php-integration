@@ -26,6 +26,7 @@
       "Chisu\\PhpIntegration\\": "src/"
     },
     "files":[
+      "Core/manual-integration.php",
       "helpers.php"
     ]
   },
