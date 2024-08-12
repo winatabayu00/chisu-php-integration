@@ -82,5 +82,12 @@ if (PHP_SAPI !== 'cli') {
         throw $e;
     }
 
-    $response->send();
+//    try {
+//        $response->send();
+//    } catch (Throwable $e) {
+//        // Log error dan kirim response default tanpa header tambahan
+//        $fallbackResponse = new Response('Internal Server Error', 500);
+//        $fallbackResponse->send();
+//    }
 }
+
