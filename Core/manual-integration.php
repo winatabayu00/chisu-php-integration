@@ -15,7 +15,6 @@ use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory as ValidatorFactory;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Engines\CompilerEngine;
-use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Engines\PhpEngine;
 use Illuminate\View\Factory;
 use Illuminate\View\FileViewFinder;
@@ -74,6 +73,8 @@ new \Chisu\PhpIntegration\Http\Router\Router($router);
 $request = Request::createFromGlobals();
 
 if (PHP_SAPI !== 'cli') {
+    ob_start();
+
     try {
         $response = $router->dispatch($request);
     } catch (NotFoundHttpException $e) {
