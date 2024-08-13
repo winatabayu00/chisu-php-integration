@@ -2,8 +2,6 @@
 
 namespace Chisu\PhpIntegration\Http\Controllers;
 
-use Chisu\PhpIntegration\Http\Controllers\Controller;
-
 class TerdugaTBController extends Controller
 {
     public function create()

@@ -6,6 +6,12 @@
     "php-integration"
   ],
   "license": "MIT",
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../satusehat-mediator-client-php"
+    }
+  ],
   "require": {
     "php": "^7.4|^8.2",
     "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
@@ -16,7 +22,9 @@
     "illuminate/routing": "^8.0|^9.0|^10.0|^11.0",
     "illuminate/events": "^8.0|^9.0|^10.0|^11.0",
     "illuminate/http": "^8.0|^9.0|^10.0|^11.0",
-    "illuminate/view": "^8.0|^9.0|^10.0|^11.0"
+    "illuminate/view": "^8.0|^9.0|^10.0|^11.0",
+    "kemenkesri/satusehat-mediator-client-php": "*",
+    "ext-json": "*"
   },
   "require-dev": {
     "laravel/tinker": "^2.9"
@@ -25,9 +33,9 @@
     "psr-4": {
       "Chisu\\PhpIntegration\\": "src/"
     },
-    "files":[
-      "Core/manual-integration.php",
-      "helpers.php"
+    "files": [
+      "helpers.php",
+      "Core/manual-integration.php"
     ]
   },
   "config": {
@@ -35,6 +43,6 @@
       "composer/package-versions-deprecated": true
     }
   },
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "prefer-stable": true
 }
