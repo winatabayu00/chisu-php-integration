@@ -12,7 +12,7 @@ trait DateTimeFormat
      * @return string
      * @throws \Exception
      */
-    protected function parseDateTime(string $date): string
+    protected function parseDateTimeWithTimezone(string $date): string
     {
         return (new DateTime(
             date('Y-m-d H:i:s',
@@ -20,5 +20,15 @@ trait DateTimeFormat
                     strtotime($date . ' ' . date('H:i:s'))
                 ))
         ))->setTimezone(new DateTimeZone('UTC'))->format('c');
+    }
+
+    /**
+     * @param string $date
+     * @return string
+     * @throws \Exception
+     */
+    protected function parseDateTime(string $date): string
+    {
+        return date('Y-m-d h:i:s',strtotime($date));
     }
 }

@@ -15,10 +15,10 @@ use Mediator\SatuSehat\Lib\Client\Model\ModelInterface;
 use Mediator\SatuSehat\Lib\Client\Model\Patient;
 use Mediator\SatuSehat\Lib\Client\Model\SubmitResponse;
 use Mediator\SatuSehat\Lib\Client\OAuthClient;
-use Mediator\SatuSehat\Lib\Client\Profiles\TB\Forms\PermohonanLab;
+use Mediator\SatuSehat\Lib\Client\Profiles\TB\Forms\Diagnosis;
 use Mediator\SatuSehat\Lib\Client\Profiles\ValidationException;
 
-class SendPermohonanLab extends BaseAction
+class SendHasilDiagnosaTB extends BaseAction
 {
     use ValidationInput;
     use DateTimeFormat;
@@ -26,7 +26,7 @@ class SendPermohonanLab extends BaseAction
     public array $inputs;
 
     public SubmitDataApi $apiInstance;
-    public PermohonanLab $form;
+    public Diagnosis $form;
 
     public function __construct(
         array $inputs
@@ -45,29 +45,18 @@ class SendPermohonanLab extends BaseAction
         $this->validate(
             $this->inputs,
             [
-                "no_sediaan" => ['nullable', 'string'],
+                "tanggal_hasil" => ['nullable', 'string'],
                 "kd_kunjungan_hidden" => ['nullable', 'string'],
                 "kd_puskesmas_hidden" => ['nullable', 'string'],
                 "lokasi_anatomi" => ['nullable', 'string'],
-                "tanggal_permohonan" => ['nullable', 'string'],
-                "pengirim" => ['nullable', 'string'],
-                "alasan_pemeriksaan" => ['nullable', 'string'],
-                "jenis_pemeriksaan" => ['nullable', 'string'],
-                "contoh_uji" => ['nullable', 'string'],
-                "tanggal_pengambilan" => ['nullable', 'string'],
-                "tanggal_pengiriman" => ['nullable', 'string'],
-            ],
-           /* [
-                "no_sediaan.required" => 'no_sediaan harus di isi',
-                "kd_kunjungan_hidden.required" => 'kd_kunjungan_hidden harus di isi',
-                "kd_puskesmas_hidden.required" => 'kd_puskesmas_hidden harus di isi',
-                "tanggal_permohonan.required" => 'tanggal_permohonan harus di isi',
-                "pengirim.required" => 'pengirim harus di isi',
-                "jenis_pemeriksaan.required" => 'jenis_pemeriksaan harus di isi',
-                "contoh_uji.required" => 'contoh_uji harus di isi',
-                "tanggal_pengambilan.required" => 'tanggal_pengambilan harus di isi',
-                "tanggal_pengiriman.required" => 'tanggal_pengiriman harus di isi',
-            ]*/
+                "thorax_tanggal" => ['nullable', 'string'],
+                "result" => ['nullable', 'string'],
+                "thorax_kesan" => ['nullable', 'string'],
+                "hasil_diagnosis" => ['nullable', 'string'],
+                "tipe_diagnosis" => ['nullable', 'string'],
+                "tindak_lanjut" => ['nullable', 'string'],
+                "tempat_pengobatan" => ['nullable', 'string'],
+            ]
         );
 
         $this->apiInstance = new SubmitDataApi(
@@ -76,7 +65,7 @@ class SendPermohonanLab extends BaseAction
             new OAuthClient(Configuration::getDefaultConfiguration())
         );
 
-        $this->form = new PermohonanLab($this->apiInstance);
+        $this->form = new Diagnosis($this->apiInstance);
         return $this;
     }
 
@@ -145,55 +134,21 @@ class SendPermohonanLab extends BaseAction
                 ->setId('e552612b-9bd4-41fb-9677-90a12bc0cc1c')
                 ->setCodeCondition("Z10")
         );
+
         $this->form
             // ->setPermohonanLabId($permohonanId)
-            ->setJenisPemeriksaan($jenis)
-            ->setJenisContohUji($contohUji)
-            ->setSpesimenId($specimenId, 'specimen_1')
-            ->setServiceRequestId($serviceRequestId)
-            ->setTanggalWaktuPenerimaanContohUji($tanggalContohUji)
-            ->setKonfirmasiContohUji($kondisi, $kondisiDetail)
-            ->setPenerimaContohUji($penerima)
-            ->setTanggalWaktuRegisterLab($tanggalDaftar)
-            ->setDokterPemeriksaLab($pemeriksa)
-            ->getHasil();
+            ->setTanggalHasilDiagnosis($this->validatedData['tanggal_hasil'])
+            ->setXrayHasil($this->validatedData['result'])
+            ->setXrayTanggalWaktu($this->validatedData['thorax_tanggal'])
+            ->setXrayKesan($this->validatedData['thorax_kesan'])
+            ->setLokasiAnatomi($this->validatedData['lokasi_anatomi'])
+//            ->setHasilDiagnosis($this->validatedData['hasil_diagnosis'] == '1' ? 'active' : 'cancelled', $this->validatedData['hasil_diagnosis'])
+            ->setTipeDiagnosis($this->validatedData['tipe_diagnosis'])
+            ->setTindakLanjutPengobatan($this->validatedData['tindak_lanjut'])
+            ->setTempatPengobatan($this->validatedData['tempat_pengobatan'])
+            ->build();
 
-        $this->form->setContohUji($contohUji)
-            ->setTanggalHasil($tanggalHasil)
-            ->setNomorRegistrasiLab($noRegLab)
-            ->setCatatan($catatan)
-            ->setNilai($nilai);
-        if ($jenis == 'tcm_xdr') {
-            $this->form->setMtb($hasilUji['mtb'])
-                ->setHDosisRendah($hasilUji['h'])
-                ->setH($hasilUji['ht'])
-                ->setFq($hasilUji['fq'])
-                ->setFqt($hasilUji['fqt'])
-                ->setAmk($hasilUji['amk'])
-                ->setKm($hasilUji['km'])
-                ->setCm($hasilUji['cm'])
-                ->setEto($hasilUji['eto']);
-        }elseif ($jenis == 'lini_1') {
-            $this->form->setMtb($hasilUji['mtb'])
-                ->setHDosisRendah($hasilUji['h'])
-                ->setH($hasilUji['ht'])
-                ->setRifampisin($hasilUji['rif'])
-                ->setEto($hasilUji['eto'])
-                ->setPto($hasilUji['pto']);
-        }elseif ($jenis == 'lini_2') {
-
-        }elseif ($jenis == 'biakan') {
-
-        }elseif ($jenis == 'kepekaan') {
-
-        }elseif ($jenis == 'bdmax') {
-
-        }elseif ($jenis == 'pcr') {
-
-        }
-
-        $this->form->build();
-
+        dd($this->form->getBody());
 
         $this->form->validate();
 

@@ -1,4 +1,5 @@
-<div id="t207" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-4" role="tabpanel" style="display: block;" aria-expanded="true" aria-hidden="false">
+<div id="t207" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-4" role="tabpanel"
+     style="display: block;" aria-expanded="true" aria-hidden="false">
 
     <div class="accordion">
         <form id="multiStepForm" action="" method="POST">
@@ -17,11 +18,13 @@
               <fieldset>
                 <span id="btn_to_lab16" class="form-item">
                   <label class="declabel2" style="width: 150px;">No. Sediaan</label>
-                  <input type="text" name="no_sediaan" id="no_sediaan" style="width: 200px;" required="" data-required-msg="Kolom No. Identitas Sediaan harus diisi" value="2024/P7371010201/1/005">
+                  <input type="text" name="no_sediaan" id="no_sediaan" style="width: 200px;" required=""
+                         data-required-msg="Kolom No. Identitas Sediaan harus diisi" value="2024/P7371010201/1/005">
                   <input type="hidden" id="kd_kunjungan_hidden" name="kd_kunjungan_hidden" value="2186450">
                   <input type="hidden" id="kd_puskesmas_hidden" name="kd_puskesmas_hidden" value="P7371010201">
                   <a href="https://devel.sitb.id/newtraining/Download/no_sediaan_help">
-                    <img id="no_sediaan_help" src="https://devel.sitb.id/newtraining/themes/default/images/help.gif" title="No. Sediaan">
+                    <img id="no_sediaan_help" src="https://devel.sitb.id/newtraining/themes/default/images/help.gif"
+                         title="No. Sediaan">
                   </a>
                   <span class="k-invalid-msg" data-for="no_sediaan"></span>
                 </span>
@@ -34,7 +37,8 @@
                 </span>
                 <span id="btn_to_lab18" class="form-item">
                   <label style="width: 150px;">Tanggal Permohonan</label>
-                  <input type="date" name="tgl_daftar" id="tgl_daftar" style="width: 200px;" required="" data-required-msg="Kolom Tanggal Permohonan harus diisi">
+                  <input type="date" name="tgl_daftar" id="tgl_daftar" style="width: 200px;" required=""
+                         data-required-msg="Kolom Tanggal Permohonan harus diisi">
                 </span>
               </fieldset>
               <span id="btn_to_lab16" class="form-item">
@@ -43,7 +47,26 @@
 		<span>
 		<label>Penerima </label>
 		<select name="penerima" id="penerima">
-			<option value="" selected=""> - silahkan pilih - </option><option value="SDMP7371010201-02" class="SDMP7371010201-02">dr.Hj,Nurhayati Ingratubun,M.Kes</option><option value="SDMP7371010201-03" class="SDMP7371010201-03">dr.Nur Aliah Tabien</option><option value="SDMP7371010201-05" class="SDMP7371010201-05">EVA SUSANTY,S.KEP,NS</option><option value="SDMP7371010201-07" class="SDMP7371010201-07">KARTINI,SKM.S.KEP,NS,M.KES</option><option value="SDMP7371010201-10" class="SDMP7371010201-10">DALWIYAH NATSIR</option><option value="SDMP7371010201-11" class="SDMP7371010201-11">TINA LORI,S.KEP</option><option value="SDMP7371010201-12" class="SDMP7371010201-12">SUSI FAUZIANA,S.KEP</option><option value="SDMP7371010201-14" class="SDMP7371010201-14">HUZAIRAH KASIM,AMD.KEP</option><option value="SDMP7371010201-15" class="SDMP7371010201-15">HUNAINI,S.ST</option><option value="SDMP7371010201-16" class="SDMP7371010201-16">YULIANI,S.ST</option><option value="SDMP7371010201-17" class="SDMP7371010201-17">ROSALINA TANDIPAU,S.ST</option><option value="SDMP7371010201-18" class="SDMP7371010201-18">SUNARNI,AMD.KEB</option><option value="SDMP7371010201-21" class="SDMP7371010201-21">SYAMSINAR,AMD.KEB</option><option value="SDMP7371010201-24" class="SDMP7371010201-24">JUMRIANI,AMKG</option><option value="SDMP7371010201-25" class="SDMP7371010201-25">HADIJAH,AMAK</option><option value="SDMP7371010201-26" class="SDMP7371010201-26">HASLINA</option><option value="SDMP7371010201-27" class="SDMP7371010201-27">Desya Faradila Ismi</option><option value="SDMP7371010201-28" class="SDMP7371010201-28">Nurul Zakinah</option><option value="SDMP7371010201-29" class="SDMP7371010201-29">VERA SEPTIANI</option>
+			<option value="" selected=""> - silahkan pilih - </option><option value="SDMP7371010201-02"
+                                                                              class="SDMP7371010201-02">dr.Hj,Nurhayati Ingratubun,M.Kes</option><option
+                    value="SDMP7371010201-03" class="SDMP7371010201-03">dr.Nur Aliah Tabien</option><option
+                    value="SDMP7371010201-05" class="SDMP7371010201-05">EVA SUSANTY,S.KEP,NS</option><option
+                    value="SDMP7371010201-07" class="SDMP7371010201-07">KARTINI,SKM.S.KEP,NS,M.KES</option><option
+                    value="SDMP7371010201-10" class="SDMP7371010201-10">DALWIYAH NATSIR</option><option
+                    value="SDMP7371010201-11" class="SDMP7371010201-11">TINA LORI,S.KEP</option><option
+                    value="SDMP7371010201-12" class="SDMP7371010201-12">SUSI FAUZIANA,S.KEP</option><option
+                    value="SDMP7371010201-14" class="SDMP7371010201-14">HUZAIRAH KASIM,AMD.KEP</option><option
+                    value="SDMP7371010201-15" class="SDMP7371010201-15">HUNAINI,S.ST</option><option
+                    value="SDMP7371010201-16" class="SDMP7371010201-16">YULIANI,S.ST</option><option
+                    value="SDMP7371010201-17" class="SDMP7371010201-17">ROSALINA TANDIPAU,S.ST</option><option
+                    value="SDMP7371010201-18" class="SDMP7371010201-18">SUNARNI,AMD.KEB</option><option
+                    value="SDMP7371010201-21" class="SDMP7371010201-21">SYAMSINAR,AMD.KEB</option><option
+                    value="SDMP7371010201-24" class="SDMP7371010201-24">JUMRIANI,AMKG</option><option
+                    value="SDMP7371010201-25" class="SDMP7371010201-25">HADIJAH,AMAK</option><option
+                    value="SDMP7371010201-26" class="SDMP7371010201-26">HASLINA</option><option
+                    value="SDMP7371010201-27" class="SDMP7371010201-27">Desya Faradila Ismi</option><option
+                    value="SDMP7371010201-28" class="SDMP7371010201-28">Nurul Zakinah</option><option
+                    value="SDMP7371010201-29" class="SDMP7371010201-29">VERA SEPTIANI</option>
 		</select>
 		</span>
 		</fieldset>              </span>
@@ -54,7 +77,26 @@
 		<span>
 		<label>Pemeriksa </label>
 		<select name="pemeriksa" id="pemeriksa">
-			<option value="" selected=""> - silahkan pilih - </option><option value="SDMP7371010201-02" class="SDMP7371010201-02">dr.Hj,Nurhayati Ingratubun,M.Kes</option><option value="SDMP7371010201-03" class="SDMP7371010201-03">dr.Nur Aliah Tabien</option><option value="SDMP7371010201-05" class="SDMP7371010201-05">EVA SUSANTY,S.KEP,NS</option><option value="SDMP7371010201-07" class="SDMP7371010201-07">KARTINI,SKM.S.KEP,NS,M.KES</option><option value="SDMP7371010201-10" class="SDMP7371010201-10">DALWIYAH NATSIR</option><option value="SDMP7371010201-11" class="SDMP7371010201-11">TINA LORI,S.KEP</option><option value="SDMP7371010201-12" class="SDMP7371010201-12">SUSI FAUZIANA,S.KEP</option><option value="SDMP7371010201-14" class="SDMP7371010201-14">HUZAIRAH KASIM,AMD.KEP</option><option value="SDMP7371010201-15" class="SDMP7371010201-15">HUNAINI,S.ST</option><option value="SDMP7371010201-16" class="SDMP7371010201-16">YULIANI,S.ST</option><option value="SDMP7371010201-17" class="SDMP7371010201-17">ROSALINA TANDIPAU,S.ST</option><option value="SDMP7371010201-18" class="SDMP7371010201-18">SUNARNI,AMD.KEB</option><option value="SDMP7371010201-21" class="SDMP7371010201-21">SYAMSINAR,AMD.KEB</option><option value="SDMP7371010201-24" class="SDMP7371010201-24">JUMRIANI,AMKG</option><option value="SDMP7371010201-25" class="SDMP7371010201-25">HADIJAH,AMAK</option><option value="SDMP7371010201-26" class="SDMP7371010201-26">HASLINA</option><option value="SDMP7371010201-27" class="SDMP7371010201-27">Desya Faradila Ismi</option><option value="SDMP7371010201-28" class="SDMP7371010201-28">Nurul Zakinah</option><option value="SDMP7371010201-29" class="SDMP7371010201-29">VERA SEPTIANI</option>
+			<option value="" selected=""> - silahkan pilih - </option><option value="SDMP7371010201-02"
+                                                                              class="SDMP7371010201-02">dr.Hj,Nurhayati Ingratubun,M.Kes</option><option
+                    value="SDMP7371010201-03" class="SDMP7371010201-03">dr.Nur Aliah Tabien</option><option
+                    value="SDMP7371010201-05" class="SDMP7371010201-05">EVA SUSANTY,S.KEP,NS</option><option
+                    value="SDMP7371010201-07" class="SDMP7371010201-07">KARTINI,SKM.S.KEP,NS,M.KES</option><option
+                    value="SDMP7371010201-10" class="SDMP7371010201-10">DALWIYAH NATSIR</option><option
+                    value="SDMP7371010201-11" class="SDMP7371010201-11">TINA LORI,S.KEP</option><option
+                    value="SDMP7371010201-12" class="SDMP7371010201-12">SUSI FAUZIANA,S.KEP</option><option
+                    value="SDMP7371010201-14" class="SDMP7371010201-14">HUZAIRAH KASIM,AMD.KEP</option><option
+                    value="SDMP7371010201-15" class="SDMP7371010201-15">HUNAINI,S.ST</option><option
+                    value="SDMP7371010201-16" class="SDMP7371010201-16">YULIANI,S.ST</option><option
+                    value="SDMP7371010201-17" class="SDMP7371010201-17">ROSALINA TANDIPAU,S.ST</option><option
+                    value="SDMP7371010201-18" class="SDMP7371010201-18">SUNARNI,AMD.KEB</option><option
+                    value="SDMP7371010201-21" class="SDMP7371010201-21">SYAMSINAR,AMD.KEB</option><option
+                    value="SDMP7371010201-24" class="SDMP7371010201-24">JUMRIANI,AMKG</option><option
+                    value="SDMP7371010201-25" class="SDMP7371010201-25">HADIJAH,AMAK</option><option
+                    value="SDMP7371010201-26" class="SDMP7371010201-26">HASLINA</option><option
+                    value="SDMP7371010201-27" class="SDMP7371010201-27">Desya Faradila Ismi</option><option
+                    value="SDMP7371010201-28" class="SDMP7371010201-28">Nurul Zakinah</option><option
+                    value="SDMP7371010201-29" class="SDMP7371010201-29">VERA SEPTIANI</option>
 		</select>
 		</span>
 		</fieldset>              </span>
@@ -85,7 +127,8 @@
 
                 <span id="btn_to_lab18" class="form-item">
                   <label style="width: 150px;">Tanggal Contoh Uji Diterima / Konfirmasi Penerimaan</label>
-                  <input type="date" name="tgl_contoh_uji" id="tgl_contoh_uji" style="width: 200px;" required="" data-required-msg="Kolom Tanggal Permohonan harus diisi">
+                  <input type="date" name="tgl_contoh_uji" id="tgl_contoh_uji" style="width: 200px;" required=""
+                         data-required-msg="Kolom Tanggal Permohonan harus diisi">
                 </span>
 
 
@@ -135,8 +178,8 @@
                     <button type="button" class="toggle-button" data-target="#content2">◼</button>
                 </div>
                 <input type="hidden" name="contoh_uji_hidden" id="contoh_uji_hidden">
-                <div class="accordion-content" id="content2">
-                    <div class="card" id="mikroskopis-card" style="display: none;">
+                <div class="accordion-content active" id="content2">
+                    <div class="card" id="mikroskopis-card" style="display: block;">
                         <div class="card-header">
                             Hasil Pemeriksaan Mikroskopis (BTA/lainnya)
                         </div>
@@ -253,6 +296,7 @@
             padding: 8px;
             vertical-align: top;
         }
+
         .accordion {
             width: 100%;
             margin: 0 auto;

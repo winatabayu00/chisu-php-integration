@@ -27,7 +27,7 @@ class PermohonanLabController extends Controller
             (new SendPermohonanLab(request()->input()))
                 ->handle();
         }catch (\Throwable $e){
-            dd($e->getMessage());
+            throw $e;
         }
         return true;
     }

@@ -2,7 +2,7 @@
 
 namespace Chisu\PhpIntegration\Http\Controllers;
 
-use Chisu\PhpIntegration\Http\Controllers\Controller;
+use Chisu\PhpIntegration\Actions\SendHasilLab;
 
 class HasilLabController extends Controller
 {
@@ -13,6 +13,12 @@ class HasilLabController extends Controller
 
     public function store()
     {
+        try {
+            (new SendHasilLab(request()->input()))
+                ->handle();
+        }catch (\Throwable $e){
+            throw $e;
+        }
         return true;
     }
 }
